@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{882B89BB-96E9-BE52-31CF-8BA0B835C90A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerControllerOldSchool.cs">
+    <Files>
+      <File FileName="Assets/PlayerController.cs" Line="45" Column="1" />
+      <File FileName="Assets/PlayerControllerOldSchool.cs" Line="13" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Spelunky_2202.0 PreferredExecutionTarget="Unity.Editor" />
+  <MultiItemStartupConfigurations />
+</Properties>
