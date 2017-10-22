@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{882B89BB-96E9-BE52-31CF-8BA0B835C90A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerControllerOldSchool.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/PlayerController.cs" Line="45" Column="1" />
-      <File FileName="Assets/PlayerControllerOldSchool.cs" Line="13" Column="20" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="10" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

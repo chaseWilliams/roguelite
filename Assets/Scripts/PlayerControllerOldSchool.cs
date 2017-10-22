@@ -9,8 +9,6 @@ public class PlayerControllerOldSchool : MonoBehaviour
     public float moveSpeed = 5f;
 
 	bool isGrounded = false;
-	float airtime = 0;
-	float GRAVITY = -9.81f;
 
 	Rigidbody2D rb;
 
