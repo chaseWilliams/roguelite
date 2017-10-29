@@ -9,10 +9,11 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 5f;
     public float wallSlideSpeed = -3f;
 
-    bool isGrounded = false;
-    bool isWallSliding = false;
+    public bool isGrounded = false;
+    public bool isWallSliding = false;
     // 1 is right, -1 is left
     Vector2 wall_slide_jump_direction;
+    float gravity_scale = 1.75f;
 
 
     Rigidbody2D rb;
@@ -26,6 +27,12 @@ public class PlayerController : MonoBehaviour {
         right_side = transform.Find("RightSide").GetComponent<BoxCollider2D>();
         feet = transform.Find("Feet").GetComponent<CircleCollider2D>();
 	}
+
+    void FixedUpdate() {
+        if (isWallSliding) {
+            rb.velocity = new Vector2(0, wallSlideSpeed);
+        }
+    }
 	
 	void Update () {
 
@@ -47,46 +54,47 @@ public class PlayerController : MonoBehaviour {
 
         if (v_input == 1 && isWallSliding) {
             Debug.Log(Vector2.Angle(Vector2.right, wall_slide_jump_direction));
-            rb.AddForce(wall_slide_jump_direction * jumpForce * 1.5f);
+            rb.AddForce(wall_slide_jump_direction * jumpForce * 1.25f);
             isWallSliding = false;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("entering collision");
         if (collision.otherCollider == feet)
         {
             isGrounded = true;
         }
-
-        rb.velocity = new Vector2(rb.velocity.x, wallSlideSpeed);
+        else {
+			rb.gravityScale = 0;
+            rb.velocity = new Vector2(0, wallSlideSpeed);
+        }
 
 
         if (collision.otherCollider == left_side)
         {
             isWallSliding = true;
-            SetWallJumpDirection(70);
+            SetWallJumpDirection(55);
         }
 
         if (collision.otherCollider == right_side)
         {
             isWallSliding = true;
-            SetWallJumpDirection(110);
+            SetWallJumpDirection(125);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.otherCollider == left_side || collision.otherCollider == right_side) {
             isWallSliding = false;
         }
+        rb.gravityScale = gravity_scale;
     }
 
     void SetWallJumpDirection(float angle) {
         angle = angle * Mathf.PI / 180f;
         wall_slide_jump_direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-        Debug.Log(wall_slide_jump_direction);
     }
 
 }
